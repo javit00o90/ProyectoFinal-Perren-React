@@ -1,0 +1,25 @@
+.squareStyle{
+    background-color: #fff;
+    display: inline;
+    height: 25px;
+    width: 25px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.cartStyle{
+    height: 25px;
+    width: 25px;
+    padding: 5px;
+    margin: auto;
+    margin-right: 5px;
+}
+.numberStyle{
+    color: red;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.cartWidged{
+    display: flex;
+    margin-right: 3%;
+}

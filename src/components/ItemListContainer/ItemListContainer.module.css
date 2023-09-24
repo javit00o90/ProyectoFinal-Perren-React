@@ -1,0 +1,11 @@
+.cardImg{
+    height: 250px;
+    width: 250px;
+    padding: 5px;
+    background-position: center;
+    background-size: contain;
+    margin: auto;
+}
+.cardBody{
+    padding: 20px;
+}

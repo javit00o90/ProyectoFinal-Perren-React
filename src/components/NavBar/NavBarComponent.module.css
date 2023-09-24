@@ -1,0 +1,16 @@
+@font-face {
+    font-family: royalPastry;
+    src: url(../../fonts/royalPastry.ttf);
+  }
+
+.brandLogo{
+    width: 85px;
+    height: 85px;
+    padding: 10px;
+}
+.brandText{
+    color: azure;
+    font-family: royalPastry;
+    font-size: 25px;
+    text-decoration: none;
+}
