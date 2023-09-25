@@ -1,3 +1,12 @@
+.skeletonBody{
+    display: flex;
+    padding: 20px;
+    height: 498px;
+    width: 284px;
+    background-color: #fff;
+    margin: 20px;
+}
+
 .cardImg{
     height: 250px;
     width: 250px;
@@ -5,14 +14,4 @@
     background-position: center;
     background-size: contain;
     margin: auto;
-}
-.cardBody{
-    padding: 20px;
-}
-.cardDesc p{
-    height: 75px;
-    overflow-x: hidden;
-}
-.cardLine{
-    border-top: 3px solid #bbb;
 }

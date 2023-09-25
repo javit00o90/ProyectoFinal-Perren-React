@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemListContainerComponent from "../components/ItemListContainer/ItemListContainerComponent";
 
-// Import firebase products collection reference
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
 const Category = () => {
@@ -13,18 +12,15 @@ const Category = () => {
   useEffect(() => {
     const db = getFirestore();
     
-    // Get reference to products collection
     const productsRef = collection(db, "products");
+    
+    const q = query(productsRef, where("category", "==", categoryId));
 
-   // Create query
-   const q = query(productsRef, where("category", "==", categoryId));
+  getDocs(q).then(snapshot => {
+    setCategoryProducts(snapshot.docs.map(doc => doc.data()));
+  });
 
-   // Execute query
-   getDocs(q).then(snapshot => {
-     setCategoryProducts(snapshot.docs.map(doc => doc.data()));
-   });
-
- }, [categoryId]);
+}, [categoryId]);
 
   return (
     <div>

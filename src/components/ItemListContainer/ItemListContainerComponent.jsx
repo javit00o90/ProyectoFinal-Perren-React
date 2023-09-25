@@ -19,8 +19,12 @@ const ItemListContainerComponent = ({ productsData }) => {
             />
             <div className="card-body">
               <h5 className="card-title">{products.name}</h5>
+              <div className={styles.cardDesc}>
               <p className="card-text">{products.description}</p>
-              <p className="card-text">Categoria: {products.category}</p>
+              </div>
+              <hr className={styles.cardLine}></hr>
+              <p className="card-text text-capitalize">Categoria: {products.category}</p>
+              <hr className={styles.cardLine}></hr>
               <p className="card-text">Precio: ${products.price}</p>
               <Button
                 variant="primary"

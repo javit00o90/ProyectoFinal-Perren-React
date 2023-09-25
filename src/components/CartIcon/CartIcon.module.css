@@ -23,3 +23,9 @@
     display: flex;
     margin-right: 3%;
 }
+
+.cartLink{
+    display: flex;
+    margin-right: 3%;
+    text-decoration: none;
+}

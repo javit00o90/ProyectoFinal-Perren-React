@@ -7,10 +7,10 @@ import { Link } from "react-router-dom";
 
 import styles from "./NavBarComponent.module.css";
 
-const logo = "https://firebasestorage.googleapis.com/v0/b/proyectofinal-perren.appspot.com/o/logosm.png?alt=media&token=91d6a754-d606-4a09-9dee-f33734912944";
+const logo = "https://firebasestorage.googleapis.com/v0/b/proyectofinal-perren.appspot.com/o/logo_icon.png?alt=media&token=e2ff3d4a-8374-472c-b70e-59b8426fef96";
 function NavBarComponent() {
   return (
-    <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
+    <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary text-decoration-none">
       <Container fluid>
         <Navbar.Brand>
           <Link className={styles.brandText} to="/">
@@ -26,20 +26,26 @@ function NavBarComponent() {
             navbarScroll
           >
             <Nav.Link>
-                <Link to="/">Home</Link>
+                <Link to="/" className={styles.linkText}>Home</Link>
             </Nav.Link>
-            <NavDropdown title="Categorías" id="navbarScrollingDropdown">
+            <NavDropdown title="Categorías" id="navbarScrollingDropdown" className={styles.linkText}>
               <NavDropdown.Item>
-              <Link to="/category/tortas">Tortas</Link>
+              <Link to="/category/tortas" className={styles.linkText}>Tortas</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-              <Link to="/category/cheesecakes">Cheesecakes</Link>
+              <Link to="/category/cheesecakes" className={styles.linkText}>Cheesecakes</Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-              <Link to="/category/alfajores">Alfajores</Link>
+              <Link to="/category/alfajores" className={styles.linkText}>Alfajores</Link>
               </NavDropdown.Item>
               <NavDropdown.Divider />
             </NavDropdown>
+            <Nav.Link>
+                <Link to="/cartcheckout" className={styles.linkText}>Cart</Link>
+            </Nav.Link>
+            <Nav.Link>
+                <Link to="/cartcheckoutstyle" className={styles.linkText}>CartStyle</Link>
+            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
