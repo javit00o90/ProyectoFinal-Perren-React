@@ -9,13 +9,8 @@ const ItemDetails = () => {
   const { itemId } = useParams();
 
   useEffect(() => {
-    //Inicializar la base de datos
     const db = getFirestore();
-
-    //Inicializamos la coleccion
     const productItem = doc(db, "products", itemId);
-
-    //Obtener los datos del documento
     getDoc(productItem).then((snapshot) => {
       setProduct({ id: snapshot.id, ...snapshot.data() });
     });

@@ -43,9 +43,6 @@ function NavBarComponent() {
             <Nav.Link>
                 <Link to="/cartcheckout" className={styles.linkText}>Cart</Link>
             </Nav.Link>
-            <Nav.Link>
-                <Link to="/cartcheckoutstyle" className={styles.linkText}>CartStyle</Link>
-            </Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

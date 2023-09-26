@@ -1,0 +1,19 @@
+.addButton{
+    background-color: rgb(8, 151, 44);
+    color: white;
+    height: 25px;
+    width: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.remButton{
+    background-color: rgb(151, 8, 8);
+    color: white;
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    cursor: pointer;
+    user-select: none;
+}

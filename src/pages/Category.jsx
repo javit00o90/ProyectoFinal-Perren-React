@@ -6,28 +6,28 @@ import { collection, getDocs, getFirestore, query, where } from "firebase/firest
 
 const Category = () => {
 
-  const [categoryProducts, setCategoryProducts] = useState([]);  
+  const [categoryProducts, setCategoryProducts] = useState([]);
   const { categoryId } = useParams();
 
   useEffect(() => {
     const db = getFirestore();
-    
+
     const productsRef = collection(db, "products");
-    
+
     const q = query(productsRef, where("category", "==", categoryId));
 
-  getDocs(q).then(snapshot => {
-    setCategoryProducts(snapshot.docs.map(doc => doc.data()));
-  });
+    getDocs(q).then(snapshot => {
+      setCategoryProducts(snapshot.docs.map(doc => doc.data()));
+    });
 
-}, [categoryId]);
+  }, [categoryId]);
 
   return (
     <div>
       {categoryProducts.length > 0 ? (
         <ItemListContainerComponent productsData={categoryProducts} />
       ) : (
-        <p>No products in this category.</p>
+        <p>No hay productos en esta categoría.</p>
       )}
     </div>
   );

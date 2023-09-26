@@ -1,0 +1,18 @@
+.clearButton{
+    background-color: rgb(55, 5, 172);
+    color: white;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.numQuantity{
+    font-weight: bold;
+    user-select: none;
+}
+
+.mainCart{
+    background-color: #575252;
+}
+.billIcon{
+    color: rgb(7, 95, 29);
+    margin-right: 10px;
+}

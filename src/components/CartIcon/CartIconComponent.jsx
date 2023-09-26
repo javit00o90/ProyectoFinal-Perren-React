@@ -11,7 +11,7 @@ const CartIcon = () => {
   return (
     <Link to="/cartcheckout" className={styles.cartLink} >
     <div className={styles.cartWidged}>
-      <FontAwesomeIcon icon={faCartShopping} style={{color: "#ffffff",}} className={styles.cartStyle}/>
+      <FontAwesomeIcon icon={faCartShopping} style={{color: "#ffffff",}} className={styles.cartStyle} beat />
       <div className={styles.squareStyle}>
         <span className={styles.numberStyle}> {getTotalItems()} </span>
       </div>
