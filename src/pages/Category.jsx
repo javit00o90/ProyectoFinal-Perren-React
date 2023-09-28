@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemListContainerComponent from "../components/ItemListContainer/ItemListContainerComponent";
+import MyLoader from "../components/LoaderComponent/loaderComponent";
 
 import { collection, getDocs, getFirestore, query, where } from "firebase/firestore";
 
@@ -16,10 +17,17 @@ const Category = () => {
 
     const q = query(productsRef, where("category", "==", categoryId));
 
-    getDocs(q).then(snapshot => {
-      setCategoryProducts(snapshot.docs.map(doc => doc.data()));
-    });
-
+    getDocs(q)
+      .then((snapshot) => {
+        const productsWithIds = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setCategoryProducts(productsWithIds);
+      })
+      .catch((error) => {
+        console.error("Error obteniendo productos:", error);
+      });
   }, [categoryId]);
 
   return (
@@ -27,7 +35,7 @@ const Category = () => {
       {categoryProducts.length > 0 ? (
         <ItemListContainerComponent productsData={categoryProducts} />
       ) : (
-        <p>No hay productos en esta categoría.</p>
+        <MyLoader />
       )}
     </div>
   );

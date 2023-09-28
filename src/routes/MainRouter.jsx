@@ -5,6 +5,7 @@ import ItemDetails from "../pages/ItemDetails"
 import Category from "../pages/Category";
 import CartCheckout from "../pages/CartCheckout";
 import PageNotFound from "../components/PageNotFound/pageNotFound";
+import Footer from "../components/Footer/FooterComponent";
 
 
 const MainRouter = () => {
@@ -19,6 +20,7 @@ const MainRouter = () => {
               <Route path="/404" element={<PageNotFound />} />
               <Route path="/*" element={<PageNotFound />} />
           </Routes>
+          <Footer />
       </Router>
     )
   }

@@ -1,17 +1,5 @@
-.skeletonBody{
-    display: flex;
-    padding: 20px;
-    height: 498px;
-    width: 284px;
-    background-color: #fff;
-    margin: 20px;
-}
-
-.cardImg{
-    height: 250px;
-    width: 250px;
-    padding: 5px;
-    background-position: center;
-    background-size: contain;
-    margin: auto;
+.loaderPosition{
+    margin-top: 200px;
+    margin-bottom: 200px;
+    margin-left: 40%;
 }

@@ -10,7 +10,6 @@ const MainLayout = ({ children }) => {
   return (
     <div>
       <main className={styles.mainStyle}>{children}</main>
-      <Footer />
     </div>
   );
 };

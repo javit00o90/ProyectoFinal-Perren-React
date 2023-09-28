@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useCart } from "../context/CartContext";
-import React from "react";
+import React, { useState } from 'react';
 import {
-    MDBBtn,
     MDBCard,
     MDBCardBody,
     MDBCardImage,
@@ -13,13 +12,13 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import Swal from "sweetalert2";
+import ModalClean from "../components/ModalClean/modalCleanComponent";
 import ButtonsForCart from "../components/ButtonsForCart/buttonsForCartComponent";
 
 import styles from "./CartCheckout.module.css";
 
 const CartCheckout = () => {
-    const { cart, getTotalPrice, clearCart } =
+    const { cart, getTotalPrice } =
         useCart();
 
     const groupedCart = cart.reduce((grouped, item) => {
@@ -30,27 +29,10 @@ const CartCheckout = () => {
         return grouped;
     }, {});
 
-    const ConfirmClean = () => {
-        Swal.fire({
-            title: "¿Está seguro que quiere limpiar el carrito?",
-            showDenyButton: true,
-            confirmButtonText: "Si",
-            denyButtonText: "No",
-            showCloseButton: true,
-            customClass: {
-                actions: "my-actions",
-                cancelButton: "order-1 right-gap",
-                confirmButton: "order-2",
-                denyButton: "order-3",
-            },
-        }).then((result) => {
-            if (result.isConfirmed) {
-                clearCart();
-                Swal.fire("Carrito limpio!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("No se borró", "", "info");
-            }
-        });
+    const [showModal, setShowModal] = useState(false);
+
+    const toggleModal = () => {
+        setShowModal(!showModal);
     };
 
     return (
@@ -74,6 +56,7 @@ const CartCheckout = () => {
                                                     <div className="flex-shrink-0">
                                                         <MDBCardImage
                                                             src={item.img}
+                                                            className={styles.image}
                                                             fluid
                                                             style={{ width: "150px" }}
                                                             alt="Generic placeholder image"
@@ -127,12 +110,10 @@ const CartCheckout = () => {
                                             }}
                                         />
 
-                                        <button
-                                            onClick={ConfirmClean}
-                                            className={styles.clearButton}
-                                        >
-                                            Limpiar carrito
-                                        </button>
+                                        <section>
+                                            <button onClick={toggleModal} className={styles.clearButton}>Limpiar Carrito</button>
+                                            {showModal && <ModalClean onModalClose={toggleModal} />}
+                                        </section>
                                         <div
                                             className="d-flex justify-content-between p-2 mb-2"
                                             style={{ backgroundColor: "#e1f5fe" }}
@@ -199,13 +180,10 @@ const CartCheckout = () => {
 
                                             <p className="mb-5">
                                                 Lorem ipsum dolor sit amet consectetur, adipisicing elit
-                                                <a href="#!"> obcaecati sapiente</a>.
                                             </p>
-
-                                            <MDBBtn block size="lg">
+                                            <button className={styles.buyButton}>
                                                 Pagar Ahora
-                                            </MDBBtn>
-
+                                            </button>
                                             <MDBTypography
                                                 tag="h5"
                                                 className="fw-bold mb-5"

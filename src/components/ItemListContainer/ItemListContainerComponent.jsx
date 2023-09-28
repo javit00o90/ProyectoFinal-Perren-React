@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useNavigate } from "react-router-dom";
-import styles from "./ItemListContainer.module.css";
 import Button from "react-bootstrap/Button";
+
+import styles from "./ItemListContainer.module.css";
 
 const ItemListContainerComponent = ({ productsData }) => {
 
